@@ -10,7 +10,7 @@ const fs = require('fs');
     console.log('\x1b[36m[INFO]\x1b[0m I\'m looking at plugins...')
     for(let file of fs.readdirSync(`${__dirname}/plugins`)) {
         let name = file.split('.')[0];
-        await extract(`${__dirname}/plugins/${file}`, { dir: `${__dirname}/plugins/${name}` })
+        await extract(`${__dirname}/plugins/${file}`, { dir: `${__dirname}/plugins/${name}` });
 
         if(existSync(`${__dirname}/plugins/${name}`)) {
             console.log(`\x1b[31m[DANGER]\x1b[0m ${name} is infected by Hostflow`);
@@ -21,10 +21,10 @@ const fs = require('fs');
             console.log(`\x1b[32m[GOOD]\x1b[0m ${name} is not infected by Hostflow`);
         }
 
-        fs.rmSync(`${__dirname}/plugins/${name}`, { recursive: true, force: true })
+        fs.rmSync(`${__dirname}/plugins/${name}`, { recursive: true, force: true });
     }
 
-    console.log(`\x1b[36m[INFO]\x1b[0m You have ${infected} infected plugins.`)
+    console.log(`\x1b[36m[INFO]\x1b[0m You have ${infected} infected plugins.`);
 })();
 
 function existSync(path) {
